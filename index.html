@@ -92,15 +92,16 @@
                         <!-- contenitore della chat -->
                         <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
                             v-bind:class="chatIndex === i ? 'active' : ''">
-                            <div class="sent d-flex justify-content-end">
-                                <p class="d-inline-block p-2 rounded-2">{{chat.messages.message}}</p>
+                            <div class="">
+                                <p class=" p-2 rounded-2" v-for="message in chat.messages">
+                                    {{message.message}}</p>
                             </div>
-                            <div class="sent d-flex justify-content-end">
+                            <!-- <div class="sent d-flex justify-content-end">
                                 <p class="d-inline-block p-2 rounded-2">Ciao come stai</p>
                             </div>
                             <div class="received d-flex justify-content-start">
                                 <p class="d-inline-block p-2 rounded-2">Ciao grazie, tutto bene.</p>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- input scrittura messaggio -->
                         <div class="my-footer p-1">
