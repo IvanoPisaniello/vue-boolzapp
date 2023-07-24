@@ -122,10 +122,12 @@ p {
     background-color: #D5F9BA;
     padding: 2px;
     text-align: end;
+    align-self: flex-end;
 }
 
 .received-message {
     background-color: white;
     padding: 2px;
     text-align: start;
+    align-self: flex-start;
 }

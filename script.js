@@ -93,7 +93,7 @@ const app = Vue.createApp({
                 status: "sent",
             },
             newMessageReceived: {
-                message: "ok",
+                message: "Non voglio parlare con te",
                 status: "received",
             }
 
