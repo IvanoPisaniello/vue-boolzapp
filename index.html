@@ -60,10 +60,10 @@
                         <!-- lista contatti -->
                         <div class="list-chat flex-column">
                             <div class="my-list-item">
-                                <div class="d-flex">
-                                    <img src="imgs/avatar_1.jpg" alt="" class="avatar">
+                                <div class="d-flex" v-for="(contact, i) in contatti">
+                                    <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
                                     <div class="d-flex flex-column mt-1">
-                                        <p class="m-0">michele</p>
+                                        <p class="m-0">{{contact.name}}</p>
                                         <p class="m-0">Ultimo messaggio inviato</p>
                                     </div>
                                 </div>
