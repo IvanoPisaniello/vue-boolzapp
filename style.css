@@ -1,0 +1,63 @@
+body {
+    background-color: #DBDBD1;
+    position: relative;
+}
+
+header {
+    background-color: #009688;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.big-container {
+    height: 700px;
+    width: 1000px;
+    border: 1px solid red;
+    position: relative;
+
+
+}
+
+[class^="col-"] {
+    border: 1px solid black;
+    height: 400px;
+}
+
+.my-navbar {
+    height: 50px;
+    border: 1px solid red;
+}
+
+.notifiche {
+    height: 50px;
+    border: 1px solid red;
+}
+
+.list-chat {
+    border: 1px solid red;
+    flex-grow: 1;
+    min-height: 400px;
+}
+
+.list-container {
+    flex-shrink: 0;
+}
+
+.my-chat-nav {
+    min-height: 50px;
+    border: 1px solid red;
+}
+
+.chat-container {
+    flex-grow: 1;
+    border: 1px solid red;
+    height: 600px;
+}
+
+.my-footer {
+    height: 50px;
+    border: 1px solid red;
+}
