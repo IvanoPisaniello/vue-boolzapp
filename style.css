@@ -1,6 +1,7 @@
 body {
     background-color: #DBDBD1;
     position: relative;
+
 }
 
 header {
@@ -10,13 +11,16 @@ header {
     top: 0;
     left: 0;
     right: 0;
+
 }
 
 .big-container {
     height: 700px;
     width: 1000px;
-    border: 1px solid red;
+
     position: relative;
+
+
 
 
 }
@@ -28,18 +32,20 @@ header {
 
 .my-navbar {
     height: 50px;
-    border: 1px solid red;
+
+    background-color: #EAEAEA;
 }
 
 .notifiche {
     height: 50px;
-    border: 1px solid red;
+
+    background-color: #8EDAFB;
 }
 
 .list-chat {
-    border: 1px solid red;
     flex-grow: 1;
-    min-height: 400px;
+    min-height: 560px;
+    background-color: white;
 }
 
 .list-container {
@@ -48,16 +54,47 @@ header {
 
 .my-chat-nav {
     min-height: 50px;
-    border: 1px solid red;
+
+    background-color: #EAEAEA;
 }
 
 .chat-container {
     flex-grow: 1;
-    border: 1px solid red;
+    background-image: url(imgs/mine.jpg);
     height: 600px;
 }
 
 .my-footer {
     height: 50px;
-    border: 1px solid red;
+
+    background-color: #EAEAEA;
+}
+
+.avatar {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.fa-regular,
+.fa-solid {
+    color: grey;
+}
+
+p {
+    font-size: 12px;
+}
+
+.fa-bell-slash {
+    color: #8EDAFB;
+    background-color: white;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.sent>p {
+    background-color: #D5F9BA;
+}
+
+.received>p {
+    background-color: white;
 }
