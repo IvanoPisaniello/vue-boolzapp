@@ -60,7 +60,8 @@
                         <!-- lista contatti -->
                         <div class="list-chat flex-column">
                             <div class="my-list-item">
-                                <div class="d-flex single-chat" v-for="(contact, i) in contatti">
+                                <div class="d-flex single-chat" v-for="(contact, i) in contatti" @click="onChatClick(i)"
+                                    v-bind:class="chatIndex === i ? 'active' : ''">
                                     <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
                                     <div class="d-flex flex-column mt-1">
                                         <p class="m-0">{{contact.name}}</p>
@@ -89,7 +90,8 @@
                             </div>
                         </div>
                         <!-- contenitore della chat -->
-                        <div class="my-chat-container p-5" v-for="(chat, i) in contatti">
+                        <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
+                            v-bind:class="chatIndex === i ? 'active' : ''">
                             <div class="sent d-flex justify-content-end">
                                 <p class="d-inline-block p-2 rounded-2">{{chat.messages.message}}</p>
                             </div>

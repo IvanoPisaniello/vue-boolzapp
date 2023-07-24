@@ -66,6 +66,7 @@ header {
     top: 50px;
     right: 0;
     left: 332px;
+    opacity: 0;
 }
 
 .my-footer {
@@ -106,4 +107,9 @@ p {
 .single-chat {
     padding: 5px;
     border-bottom: 1px solid grey;
+    cursor: pointer;
+}
+
+.active {
+    opacity: 1;
 }

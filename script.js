@@ -85,13 +85,16 @@ const app = Vue.createApp({
                     ],
                 },
             ],
-
+            chatIndex: 0,
 
         }
     },
 
     methods: {
-
+        onChatClick(i) {
+            console.log(i)
+            this.chatIndex = i;
+        }
     },
 })
 
