@@ -84,6 +84,102 @@ const app = Vue.createApp({
                         },
                     ],
                 },
+                {
+                    name: "Ajeje",
+                    avatar: "_4",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Biglietto per favore",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Mi hanno rubato il portafogli",
+                            status: "received",
+                        },
+                    ],
+                },
+                {
+                    name: "Luisa",
+                    avatar: "_4",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Si, ma preferirei andare al cinema",
+                            status: "received",
+                        },
+                    ],
+                },
+                {
+                    name: "Luisa",
+                    avatar: "_4",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Si, ma preferirei andare al cinema",
+                            status: "received",
+                        },
+                    ],
+                },
+                {
+                    name: "Luisa",
+                    avatar: "_4",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Si, ma preferirei andare al cinema",
+                            status: "received",
+                        },
+                    ],
+                },
+                {
+                    name: "Luisa",
+                    avatar: "_4",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Si, ma preferirei andare al cinema",
+                            status: "received",
+                        },
+                    ],
+                },
+                {
+                    name: "Luisa",
+                    avatar: "_4",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Si, ma preferirei andare al cinema",
+                            status: "received",
+                        },
+                    ],
+                },
             ],
             chatIndex: 0,
             // newMessageText: "",
@@ -118,7 +214,9 @@ const app = Vue.createApp({
                     this.contatti[this.chatIndex].messages.push(messageReceivedClone)
                 }, 2000);
             }
-        }
+        },
+
+
 
     },
 })

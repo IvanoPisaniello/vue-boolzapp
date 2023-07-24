@@ -43,9 +43,10 @@ header {
 }
 
 .list-chat {
-    flex-grow: 1;
-    min-height: 560px;
+    /* flex-grow: 1; */
+    height: 560px;
     background-color: white;
+    overflow: auto;
 }
 
 .list-container {
@@ -67,6 +68,7 @@ header {
     right: 0;
     left: 332px;
     opacity: 0;
+    overflow: auto;
 }
 
 .my-footer {

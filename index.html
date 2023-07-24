@@ -44,10 +44,10 @@
 
                         <!-- div notifiche -->
                         <div class=" notifiche d-flex p-2">
-                            <i class="fa-regular fa-bell-slash fs-2"></i>
+                            <i class="fa-solid fa-bell-slash rounded-5 px-2 py-2"></i>
                             <div class="d-flex flex-column mt-1">
                                 <p class="m-0">Ricevi notifiche di nuovi messsaggi</p>
-                                <p class="m-0">Attiva notifiche desktop</p>
+                                <p class="m-0"><a href="#">Attiva notifiche desktop</a></p>
                             </div>
                         </div>
                         <!-- form di ricerca del contatto -->
@@ -93,7 +93,7 @@
                         <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
                             v-bind:class="chatIndex === i ? 'active' : ''">
                             <div class="d-flex flex-column messages-container">
-                                <p class=" p-2 rounded-2" v-for="(messageGroup, i) in chat.messages"
+                                <p class=" p-2 rounded-3" v-for="(messageGroup, i) in chat.messages"
                                     v-bind:class="messageGroup.status === 'sent' ? 'sent-message' : 'received-message'">
                                     {{messageGroup.message}}</p>
 
