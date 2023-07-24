@@ -58,15 +58,19 @@ header {
     background-color: #EAEAEA;
 }
 
-.chat-container {
+.my-chat-container {
     flex-grow: 1;
     background-image: url(imgs/mine.jpg);
     height: 600px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 332px;
 }
 
 .my-footer {
     height: 50px;
-
+    margin-top: 600px;
     background-color: #EAEAEA;
 }
 
@@ -97,4 +101,9 @@ p {
 
 .received>p {
     background-color: white;
+}
+
+.single-chat {
+    padding: 5px;
+    border-bottom: 1px solid grey;
 }
