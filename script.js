@@ -86,6 +86,12 @@ const app = Vue.createApp({
                 },
             ],
             chatIndex: 0,
+            // newMessageText: "",
+
+            newMessage: {
+                message: "",
+                status: "sent",
+            }
 
         }
     },
@@ -94,7 +100,15 @@ const app = Vue.createApp({
         onChatClick(i) {
             console.log(i)
             this.chatIndex = i;
+
+        },
+        addMessage() {
+            const messageClone = { ...this.newItem };
+            this.contatti.messages.push(messageClone)
+            console.log(this.contatti)
+            this.newMessage.message = "";
         }
+
     },
 })
 

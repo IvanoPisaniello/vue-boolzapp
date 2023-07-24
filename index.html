@@ -92,9 +92,11 @@
                         <!-- contenitore della chat -->
                         <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
                             v-bind:class="chatIndex === i ? 'active' : ''">
-                            <div class="">
-                                <p class=" p-2 rounded-2" v-for="message in chat.messages">
-                                    {{message.message}}</p>
+                            <div class="d-flex flex-column">
+                                <p class=" p-2 rounded-2" v-for="(messageGroup, i) in chat.messages"
+                                    v-bind:class="messageGroup.status === 'sent' ? 'sent-message' : 'received-message'">
+                                    {{messageGroup.message}}</p>
+
                             </div>
                             <!-- <div class="sent d-flex justify-content-end">
                                 <p class="d-inline-block p-2 rounded-2">Ciao come stai</p>
@@ -109,7 +111,8 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="fa-regular fa-face-smile"></i></span>
                                 <input type="text" class="form-control" placeholder="" aria-label="Username"
-                                    aria-describedby="basic-addon1">
+                                    aria-describedby="basic-addon1" v-model="newMessage.message"
+                                    @keyup.enter="addMessage()">
                             </div>
                         </div>
                     </div>
