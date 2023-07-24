@@ -113,8 +113,10 @@ const app = Vue.createApp({
             this.newMessage.message = "";
 
             if (this.newMessage !== "") {
-                const messageReceivedClone = { ...this.newMessageReceived };
-                this.contatti[this.chatIndex].messages.push(messageReceivedClone)
+                setTimeout(() => {
+                    const messageReceivedClone = { ...this.newMessageReceived };
+                    this.contatti[this.chatIndex].messages.push(messageReceivedClone)
+                }, 2000);
             }
         }
 
