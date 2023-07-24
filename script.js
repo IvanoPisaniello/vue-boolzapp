@@ -91,6 +91,10 @@ const app = Vue.createApp({
             newMessage: {
                 message: "",
                 status: "sent",
+            },
+            newMessageReceived: {
+                message: "ok",
+                status: "received",
             }
 
         }
@@ -103,10 +107,15 @@ const app = Vue.createApp({
 
         },
         addMessage() {
-            const messageClone = { ...this.newItem };
-            this.contatti.messages.push(messageClone)
+            const messageClone = { ...this.newMessage };
+            this.contatti[this.chatIndex].messages.push(messageClone)
             console.log(this.contatti)
             this.newMessage.message = "";
+
+            if (this.newMessage !== "") {
+                const messageReceivedClone = { ...this.newMessageReceived };
+                this.contatti[this.chatIndex].messages.push(messageReceivedClone)
+            }
         }
 
     },
