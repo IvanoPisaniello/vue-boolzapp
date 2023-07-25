@@ -86,7 +86,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Ajeje",
-                    avatar: "_1",
+                    avatar: "_2",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -183,7 +183,7 @@ const app = Vue.createApp({
             ],
             chatIndex: 0,
             // newMessageText: "",
-
+            currentContact: null,
             newMessage: {
                 message: "",
                 status: "sent",
@@ -197,28 +197,33 @@ const app = Vue.createApp({
     },
 
     methods: {
-        onChatClick(i) {
-            console.log(i)
-            this.chatIndex = i;
+        onChatClick(contact) {
+            console.log(contact)
+            this.currentContact = contact;
 
         },
         addMessage() {
             const messageClone = { ...this.newMessage };
-            this.contatti[this.chatIndex].messages.push(messageClone)
+            this.currentContact.messages.push(messageClone)
             console.log(this.contatti)
             this.newMessage.message = "";
 
             if (this.newMessage !== "") {
                 setTimeout(() => {
                     const messageReceivedClone = { ...this.newMessageReceived };
-                    this.contatti[this.chatIndex].messages.push(messageReceivedClone)
+                    this.currentContact.messages.push(messageReceivedClone)
                 }, 2000);
             }
         },
 
-
+        beforeMount() {
+            this.currentContact = this.contatti[0];
+        }
 
     },
+    mounted() {
+        this.currentContact = this.contatti[0];
+    }
 })
 
 app.mount("#app")

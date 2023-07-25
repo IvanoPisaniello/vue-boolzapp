@@ -52,7 +52,7 @@
                         </div>
                         <!-- form di ricerca del contatto -->
                         <div class="input-group bg-white">
-                            <span class="input-group-text border-0" id="basic-addon1"><i
+                            <span class="input-group-text border-0 rounded-2" id="basic-addon1"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
                             <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat"
                                 aria-label="Username" aria-describedby="basic-addon1">
@@ -60,8 +60,9 @@
                         <!-- lista contatti -->
                         <div class="list-chat flex-column">
                             <div class="my-list-item">
-                                <div class="d-flex single-chat" v-for="(contact, i) in contatti" @click="onChatClick(i)"
-                                    v-bind:class="chatIndex === i ? 'active' : ''">
+                                <div class="d-flex single-chat" v-for="(contact, i) in contatti"
+                                    @click="onChatClick(contact)"
+                                    v-bind:class="currentContact === contact ? 'active' : ''">
                                     <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
                                     <div class="d-flex flex-column mt-1">
                                         <p class="m-0">{{contact.name}}</p>
@@ -91,7 +92,7 @@
                         </div>
                         <!-- contenitore della chat -->
                         <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
-                            v-bind:class="chatIndex === i ? 'active' : ''">
+                            v-bind:class="currentContact === chat ? 'active' : ''">
                             <div class="d-flex flex-column messages-container">
                                 <p class=" p-2 rounded-3" v-for="(messageGroup, i) in chat.messages"
                                     v-bind:class="messageGroup.status === 'sent' ? 'sent-message' : 'received-message'">
@@ -110,8 +111,8 @@
                             <div class="input-group">
                                 <button class="px-3 py-1 border-0" id="basic-addon1"><i
                                         class="fa-regular fa-face-smile"></i></button>
-                                <input type="text" class="form-control border-0" placeholder="" aria-label="Username"
-                                    aria-describedby="basic-addon1" v-model="newMessage.message"
+                                <input type="text" class="form-control border-0 rounded-2" placeholder=""
+                                    aria-label="Username" aria-describedby="basic-addon1" v-model="newMessage.message"
                                     @keyup.enter="addMessage()">
                                 <button class="px-4 py-1 border-0" id="basic-addon1"><i
                                         class="fa-solid fa-microphone"></i></button>
