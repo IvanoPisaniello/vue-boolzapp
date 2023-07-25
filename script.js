@@ -220,12 +220,22 @@ const app = Vue.createApp({
 
 
 
+
         beforeMount() {
             this.currentContact = this.contatti[0];
         },
-        searchContacts() {
 
-        }
+
+    },
+    computed: {
+        listaContatti() {
+            if (this.search.length > 0) {
+                return this.contatti.filter(contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
+            } else {
+                return this.contatti;
+            }
+
+        },
     },
     mounted() {
         this.currentContact = this.contatti[0];

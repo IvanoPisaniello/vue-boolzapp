@@ -60,7 +60,7 @@
                         <!-- lista contatti -->
                         <div class="list-chat flex-column">
                             <div class="my-list-item">
-                                <div class="d-flex single-chat" v-for="(contact, i) in contatti"
+                                <div class="d-flex single-chat" v-for="(contact, i) in listaContatti"
                                     @click="onChatClick(contact)"
                                     v-bind:class="currentContact === contact ? 'active' : ''">
                                     <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
