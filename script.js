@@ -227,11 +227,14 @@ const app = Vue.createApp({
 
 
     },
+    //inserisco la funzione per filtrare in computed perchè restituisce un valore basato su dati reattivi
     computed: {
         listaContatti() {
+            //se l'imput è più lungo di 0 allora mi deve ritornare il singolo contatto restituito dal controllo del nome del contatto stesso e il valore di search
             if (this.search.length > 0) {
                 return this.contatti.filter(contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
             } else {
+                //altrimenti mi deve ritornare la lista dei contatti iniziali presente nell'array
                 return this.contatti;
             }
 

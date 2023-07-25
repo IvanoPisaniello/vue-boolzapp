@@ -60,6 +60,7 @@
                         <!-- lista contatti -->
                         <div class="list-chat flex-column">
                             <div class="my-list-item">
+                                <!-- qui cambio "contatti" in "listaContatti" per permettere di filtrare gli elementi-->
                                 <div class="d-flex single-chat" v-for="(contact, i) in listaContatti"
                                     @click="onChatClick(contact)"
                                     v-bind:class="currentContact === contact ? 'active' : ''">
