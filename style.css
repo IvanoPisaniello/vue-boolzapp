@@ -66,19 +66,15 @@ header {
 .my-chat-container {
     flex-grow: 1;
     background-image: url(imgs/mine.jpg);
-    height: 600px;
-    /* position: absolute;
-    top: 50px;
-    right: 0;
-    left: 332px; */
+    height: 601px;
     display: none;
     overflow: auto;
 
 }
 
 .my-footer {
-    height: 50px;
-    background-color: #EAEAEA;
+    height: 45px;
+    background-color: #F3EEEB;
 }
 
 .avatar {
@@ -118,6 +114,7 @@ p {
 
 .active {
     display: flex;
+    background-color: #EAEAEA;
 }
 
 .white {
@@ -140,4 +137,8 @@ p {
 
 .messages-container {
     width: 100%;
+}
+
+a {
+    color: grey;
 }

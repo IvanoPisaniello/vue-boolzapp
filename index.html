@@ -52,9 +52,9 @@
                         </div>
                         <!-- form di ricerca del contatto -->
                         <div class="input-group bg-white">
-                            <span class="input-group-text" id="basic-addon1"><i
+                            <span class="input-group-text border-0" id="basic-addon1"><i
                                     class="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                            <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat"
                                 aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <!-- lista contatti -->
@@ -107,14 +107,14 @@
                         </div>
                         <!-- input scrittura messaggio -->
                         <div class="my-footer p-1">
-                            <div class="input-group bg-white">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="fa-regular fa-face-smile"></i></span>
-                                <input type="text" class="form-control" placeholder="" aria-label="Username"
+                            <div class="input-group">
+                                <button class="px-3 py-1 border-0" id="basic-addon1"><i
+                                        class="fa-regular fa-face-smile"></i></button>
+                                <input type="text" class="form-control border-0" placeholder="" aria-label="Username"
                                     aria-describedby="basic-addon1" v-model="newMessage.message"
                                     @keyup.enter="addMessage()">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="fa-solid fa-microphone"></i></span>
+                                <button class="px-4 py-1 border-0" id="basic-addon1"><i
+                                        class="fa-solid fa-microphone"></i></button>
                             </div>
 
                         </div>
