@@ -78,9 +78,10 @@
                     <div class="d-flex flex-column">
                         <div class="my-chat-nav d-flex justify-content-between">
                             <div class="d-flex">
-                                <img src="imgs/avatar_1.jpg" alt="" class="avatar">
+                                <img v-bind:src="'imgs/avatar' + currentContact.avatar + '.jpg'" alt="" class="avatar"
+                                    v-if="currentContact">
                                 <div class="d-flex flex-column mt-1">
-                                    <p class="m-0">{{contatti[chatIndex].name}}</p>
+                                    <p class="m-0" v-if="currentContact">{{currentContact.name}}</p>
                                     <p class="m-0">Ultimo accesso oggi alle 12.00</p>
                                 </div>
                             </div>

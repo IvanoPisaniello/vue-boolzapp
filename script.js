@@ -197,6 +197,7 @@ const app = Vue.createApp({
     },
 
     methods: {
+
         onChatClick(contact) {
             console.log(contact)
             this.currentContact = contact;
