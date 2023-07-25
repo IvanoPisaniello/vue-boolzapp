@@ -90,13 +90,18 @@ const app = Vue.createApp({
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
-                            message: "Biglietto per favore",
+                            message: "Mi faccia vedere il biglietto...se ce l'ha...",
                             status: "sent",
                         },
                         {
                             date: "10/01/2020 15:50:00",
-                            message: "Mi hanno rubato il portafogli",
+                            message: "ce l'ho...se non ce l'ho l'ho perso",
                             status: "received",
+                        },
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "se l'ha perso le farò la contravvenzione",
+                            status: "sent",
                         },
                     ],
                 },
