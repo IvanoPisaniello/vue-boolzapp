@@ -12,6 +12,7 @@ header {
     left: 0;
     right: 0;
 
+
 }
 
 .big-container {
@@ -19,16 +20,17 @@ header {
     width: 1000px;
 
     position: relative;
+    padding-top: 50px;
 
 
 
 
 }
 
-[class^="col-"] {
+/* [class^="col-"] {
     border: 1px solid black;
     height: 400px;
-}
+} */
 
 .my-navbar {
     height: 50px;

@@ -86,7 +86,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Ajeje",
-                    avatar: "_4",
+                    avatar: "_1",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -101,8 +101,8 @@ const app = Vue.createApp({
                     ],
                 },
                 {
-                    name: "Luisa",
-                    avatar: "_4",
+                    name: "Giorgio",
+                    avatar: "_1",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -117,8 +117,8 @@ const app = Vue.createApp({
                     ],
                 },
                 {
-                    name: "Luisa",
-                    avatar: "_4",
+                    name: "Marco",
+                    avatar: "_2",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -133,8 +133,8 @@ const app = Vue.createApp({
                     ],
                 },
                 {
-                    name: "Luisa",
-                    avatar: "_4",
+                    name: "Luca",
+                    avatar: "_3",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -149,8 +149,8 @@ const app = Vue.createApp({
                     ],
                 },
                 {
-                    name: "Luisa",
-                    avatar: "_4",
+                    name: "Giovanni",
+                    avatar: "_2",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -165,8 +165,8 @@ const app = Vue.createApp({
                     ],
                 },
                 {
-                    name: "Luisa",
-                    avatar: "_4",
+                    name: "Mario",
+                    avatar: "_1",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
