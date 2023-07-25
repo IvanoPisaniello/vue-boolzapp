@@ -7,7 +7,7 @@ body {
 header {
     background-color: #009688;
     height: 100px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -21,7 +21,7 @@ header {
 
     position: relative;
 
-
+    margin-top: 50px;
 
 
 
