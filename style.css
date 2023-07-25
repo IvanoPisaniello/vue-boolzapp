@@ -21,7 +21,7 @@ header {
 
     position: relative;
 
-    margin-top: 50px;
+    margin-top: 30px;
 
 
 
@@ -54,6 +54,7 @@ header {
 
 .list-container {
     flex-shrink: 0;
+    height: 100%;
 }
 
 .my-chat-nav {
@@ -66,17 +67,17 @@ header {
     flex-grow: 1;
     background-image: url(imgs/mine.jpg);
     height: 600px;
-    position: absolute;
+    /* position: absolute;
     top: 50px;
     right: 0;
-    left: 332px;
-    opacity: 0;
+    left: 332px; */
+    display: none;
     overflow: auto;
+
 }
 
 .my-footer {
     height: 50px;
-    margin-top: 600px;
     background-color: #EAEAEA;
 }
 
@@ -116,7 +117,7 @@ p {
 }
 
 .active {
-    opacity: 1;
+    display: flex;
 }
 
 .white {
@@ -135,4 +136,8 @@ p {
     padding: 2px;
     text-align: start;
     align-self: flex-start;
+}
+
+.messages-container {
+    width: 100%;
 }
