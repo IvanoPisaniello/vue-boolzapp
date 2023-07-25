@@ -33,7 +33,7 @@
                         <div class="my-navbar d-flex justify-content-between">
                             <div class="d-flex">
                                 <img src="imgs/avatar_io.jpg" alt="" class="avatar">
-                                <p class="mt-3">Sofia</p>
+                                <p class="mt-3"><strong>Sofia</strong></p>
                             </div>
                             <div class="dflex mt-2 p-2">
                                 <i class="fa-regular fa-circle"></i>
@@ -66,7 +66,7 @@
                                     v-bind:class="currentContact === contact ? 'active' : ''">
                                     <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
                                     <div class="d-flex flex-column mt-1">
-                                        <p class="m-0">{{contact.name}}</p>
+                                        <p class="m-0"><strong>{{contact.name}}</strong></p>
                                         <p class="m-0">Ultimo messaggio inviato...</p>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                 <img v-bind:src="'imgs/avatar' + currentContact.avatar + '.jpg'" alt="" class="avatar"
                                     v-if="currentContact">
                                 <div class="d-flex flex-column mt-1">
-                                    <p class="m-0" v-if="currentContact">{{currentContact.name}}</p>
+                                    <p class="m-0" v-if="currentContact"><strong>{{currentContact.name}}</strong></p>
                                     <p class="m-0">Ultimo accesso oggi alle 12.00</p>
                                 </div>
                             </div>
