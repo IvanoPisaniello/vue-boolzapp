@@ -86,7 +86,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Ajeje",
-                    avatar: "_2",
+                    avatar: "_9",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -192,8 +192,8 @@ const app = Vue.createApp({
             newMessageReceived: {
                 message: "Non voglio parlare con te",
                 status: "received",
-            }
-
+            },
+            over: false,
         }
     },
 

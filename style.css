@@ -124,7 +124,7 @@ p {
 .sent-message {
     background-color: #D5F9BA;
     padding: 2px;
-
+    min-width: 200px;
     align-self: flex-end;
 }
 
@@ -133,6 +133,7 @@ p {
     padding: 2px;
 
     align-self: flex-start;
+    min-width: 150px;
 }
 
 .messages-container {
@@ -141,4 +142,8 @@ p {
 
 a {
     color: grey;
+}
+
+.fa-angle-down:hover {
+    color: green;
 }

@@ -67,7 +67,7 @@
                                     <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
                                     <div class="d-flex flex-column mt-1">
                                         <p class="m-0">{{contact.name}}</p>
-                                        <p class="m-0">Utlimo messaggio inviato...</p>
+                                        <p class="m-0">Ultimo messaggio inviato...</p>
                                     </div>
                                 </div>
                             </div>
@@ -96,9 +96,11 @@
                         <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
                             v-bind:class="currentContact === chat ? 'active' : ''">
                             <div class="d-flex flex-column messages-container">
-                                <p class=" p-2 rounded-3" v-for="(messageGroup, i) in chat.messages"
+                                <p class=" p-2 rounded-3 message" v-for="(messageGroup, i) in chat.messages"
                                     v-bind:class="messageGroup.status === 'sent' ? 'sent-message' : 'received-message'">
-                                    {{messageGroup.message}}</p>
+                                    {{messageGroup.message}}
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </p>
 
                             </div>
                             <!-- <div class="sent d-flex justify-content-end">
