@@ -181,7 +181,8 @@ const app = Vue.createApp({
                     ],
                 },
             ],
-            chatIndex: 0,
+            search: "",
+            // chatIndex: 0,
             // newMessageText: "",
             currentContact: null,
             newMessage: {
@@ -209,18 +210,22 @@ const app = Vue.createApp({
             console.log(this.contatti)
             this.newMessage.message = "";
 
-            if (this.newMessage !== "") {
-                setTimeout(() => {
-                    const messageReceivedClone = { ...this.newMessageReceived };
-                    this.currentContact.messages.push(messageReceivedClone)
-                }, 2000);
-            }
+
+            setTimeout(() => {
+                const messageReceivedClone = { ...this.newMessageReceived };
+                this.currentContact.messages.push(messageReceivedClone)
+            }, 2000);
+
         },
+
+
 
         beforeMount() {
             this.currentContact = this.contatti[0];
-        }
+        },
+        searchContacts() {
 
+        }
     },
     mounted() {
         this.currentContact = this.contatti[0];
