@@ -203,12 +203,12 @@ const app = Vue.createApp({
             newMessage: {
                 message: "",
                 status: "sent",
-                date: new Date().toLocaleTimeString(),
+                date: "",
             },
             newMessageReceived: {
                 message: "Non voglio parlare con te",
                 status: "received",
-                date: new Date().toLocaleTimeString(),
+                date: "",
             },
             over: false,
         }
