@@ -203,12 +203,12 @@ const app = Vue.createApp({
             newMessage: {
                 message: "",
                 status: "sent",
-                date: "",
+                date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             },
             newMessageReceived: {
                 message: "Non voglio parlare con te",
                 status: "received",
-                date: "",
+                date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             },
             over: false,
         }
@@ -225,9 +225,7 @@ const app = Vue.createApp({
             const messageClone = { ...this.newMessage };
             this.currentContact.messages.push(messageClone)
             console.log(this.contatti)
-            //formatto la data e la aggiungo al messaggio
-            const currentDate = new Date().toLocaleTimeString();
-            this.newMessage.date = currentDate;
+
 
             this.newMessage.message = "";
 
@@ -235,9 +233,7 @@ const app = Vue.createApp({
             setTimeout(() => {
                 const messageReceivedClone = { ...this.newMessageReceived };
                 this.currentContact.messages.push(messageReceivedClone)
-                //formatto la data e la aggiungo al messaggio
-                const currentDate = new Date().toLocaleTimeString();
-                this.newMessageReceived.date = currentDate;
+
                 // setTimeout(() => {
                 //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
                 // }, 0);
