@@ -203,17 +203,12 @@ const app = Vue.createApp({
             newMessage: {
                 message: "",
                 status: "sent",
-                //soluzione per formattare: inserire come primo parametro un array vuoto(si usa per specificare le opzioni regionali),
-                // e come secondo argomento inseriamo un oggetto in cui inseriamo il parametro "2-digit"
-                // che specifica il formato delle cirfre da utilizzare
-
-                date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                date: new Date().toLocaleTimeString(),
             },
             newMessageReceived: {
                 message: "Non voglio parlare con te",
                 status: "received",
-
-                date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                date: new Date().toLocaleTimeString(),
             },
             over: false,
         }
@@ -231,6 +226,8 @@ const app = Vue.createApp({
             this.currentContact.messages.push(messageClone)
             console.log(this.contatti)
 
+            const currentDate = new Date().toLocaleTimeString();
+            this.newMessage.date = currentDate;
 
             this.newMessage.message = "";
 
@@ -239,10 +236,20 @@ const app = Vue.createApp({
                 const messageReceivedClone = { ...this.newMessageReceived };
                 this.currentContact.messages.push(messageReceivedClone)
 
-
+                const currentDate = new Date().toLocaleTimeString();
+                this.newMessageReceived.date = currentDate;
+                // setTimeout(() => {
+                //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
+                // }, 0);
             }, 2000);
 
-
+            //funzione che permette lo scroll automatico in basso all'aggiunta di un nuovo messsaggio
+            //usiamo this per richiamara la "ref" poichè è una funzione interna a js 
+            //inserendo la funzione in setTimeout la funzione viene messa in coda e si aggiorna solo dopo l'aggiunta del nuovo
+            // console.log(this.$refs.messagesContainer)
+            // setTimeout(() => {
+            //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
+            // }, 0);
         },
         formatDate() { },
 
