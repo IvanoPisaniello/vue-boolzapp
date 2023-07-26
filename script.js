@@ -222,34 +222,30 @@ const app = Vue.createApp({
 
         },
         addMessage() {
+            //soluzione per formattare l'ora: passiamo come primo argomento a "toLocaleTimeString" un array vuoto(impostazioni regionali)
+            //e come secondo argomento passiamo un oggetto che ha all'interno 2 proprietà "2-digit" che specifica il numero di cifre da
+            //ritornare
+            const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            this.newMessage.date = currentDate;
             const messageClone = { ...this.newMessage };
             this.currentContact.messages.push(messageClone)
             console.log(this.contatti)
 
-            const currentDate = new Date().toLocaleTimeString();
-            this.newMessage.date = currentDate;
+
+
 
             this.newMessage.message = "";
 
 
             setTimeout(() => {
+                const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                this.newMessageReceived.date = currentDate;
                 const messageReceivedClone = { ...this.newMessageReceived };
                 this.currentContact.messages.push(messageReceivedClone)
 
-                const currentDate = new Date().toLocaleTimeString();
-                this.newMessageReceived.date = currentDate;
-                // setTimeout(() => {
-                //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
-                // }, 0);
             }, 2000);
 
-            //funzione che permette lo scroll automatico in basso all'aggiunta di un nuovo messsaggio
-            //usiamo this per richiamara la "ref" poichè è una funzione interna a js 
-            //inserendo la funzione in setTimeout la funzione viene messa in coda e si aggiorna solo dopo l'aggiunta del nuovo
-            // console.log(this.$refs.messagesContainer)
-            // setTimeout(() => {
-            //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
-            // }, 0);
+
         },
         formatDate() { },
 
