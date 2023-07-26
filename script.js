@@ -127,12 +127,17 @@ const app = Vue.createApp({
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
-                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            message: "che fai domani?",
                             status: "sent",
                         },
                         {
                             date: "10/01/2020 15:50:00",
-                            message: "Si, ma preferirei andare al cinema",
+                            message: "ah boh, penso nulla",
+                            status: "received",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "vuoi fare un giro?",
                             status: "received",
                         },
                     ],
@@ -143,12 +148,17 @@ const app = Vue.createApp({
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
-                            message: "Lo sai che ha aperto una nuova pizzeria?",
+                            message: "hai visto il nuovo MI?",
                             status: "sent",
                         },
                         {
                             date: "10/01/2020 15:50:00",
-                            message: "Si, ma preferirei andare al cinema",
+                            message: "Si, ma si ma non mi è piaciuto molto",
+                            status: "received",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "preferisco altri tipi di film",
                             status: "received",
                         },
                     ],
@@ -188,15 +198,17 @@ const app = Vue.createApp({
             ],
             search: "",
             // chatIndex: 0,
-            // newMessageText: "",
+            newMessageText: "",
             currentContact: null,
             newMessage: {
                 message: "",
                 status: "sent",
+                date: "",
             },
             newMessageReceived: {
                 message: "Non voglio parlare con te",
                 status: "received",
+                date: "",
             },
             over: false,
         }
@@ -213,16 +225,33 @@ const app = Vue.createApp({
             const messageClone = { ...this.newMessage };
             this.currentContact.messages.push(messageClone)
             console.log(this.contatti)
+            //formatto la data e la aggiungo al messaggio
+            const currentDate = new Date().toLocaleTimeString();
+            this.newMessage.date = currentDate;
+
             this.newMessage.message = "";
 
 
             setTimeout(() => {
                 const messageReceivedClone = { ...this.newMessageReceived };
                 this.currentContact.messages.push(messageReceivedClone)
+                //formatto la data e la aggiungo al messaggio
+                const currentDate = new Date().toLocaleTimeString();
+                this.newMessageReceived.date = currentDate;
+                // setTimeout(() => {
+                //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
+                // }, 0);
             }, 2000);
 
+            //funzione che permette lo scroll automatico in basso all'aggiunta di un nuovo messsaggio
+            //usiamo this per richiamara la "ref" poichè è una funzione interna a js 
+            //inserendo la funzione in setTimeout la funzione viene messa in coda e si aggiorna solo dopo l'aggiunta del nuovo
+            // console.log(this.$refs.messagesContainer)
+            // setTimeout(() => {
+            //     this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
+            // }, 0);
         },
-
+        formatDate() { },
 
 
 
