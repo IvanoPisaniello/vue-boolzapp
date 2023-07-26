@@ -188,7 +188,6 @@ const app = Vue.createApp({
             ],
             search: "",
             // chatIndex: 0,
-            // newMessageText: "",
             currentContact: null,
             newMessage: {
                 message: "",
@@ -217,8 +216,8 @@ const app = Vue.createApp({
 
 
             setTimeout(() => {
-                const messageReceivedClone = { ...this.newMessageReceived };
-                this.currentContact.messages.push(messageReceivedClone)
+
+                this.currentContact.messages.push(this.newMessageReceived)
             }, 2000);
 
         },
