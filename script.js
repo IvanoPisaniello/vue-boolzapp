@@ -206,7 +206,7 @@ const app = Vue.createApp({
                 date: "",
             },
             newMessageReceived: {
-                message: "Non voglio parlare con te",
+                message: "",
                 status: "received",
                 date: "",
             },
@@ -243,11 +243,24 @@ const app = Vue.createApp({
 
 
             setTimeout(() => {
-                const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                this.newMessageReceived.date = currentDate;
-                const messageReceivedClone = { ...this.newMessageReceived };
-                this.currentContact.messages.push(messageReceivedClone)
-                this.messageLastAxcess = "Online";
+                axios
+                    .get("https://flynn.boolean.careers/exercises/api/random/sentence")
+                    .then((axiosResp) => {
+                        const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                        this.newMessageReceived.date = currentDate;
+                        // const messageReceivedClone = { ...this.newMessageReceived };
+                        this.currentContact.messages.push({ message: axiosResp.data.response })
+                        this.messageLastAxcess = "Online";
+                        console.log(axiosResp.data.response)
+                    });
+
+                // const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                // this.newMessageReceived.date = currentDate;
+                // const messageReceivedClone = { ...this.newMessageReceived };
+                // this.currentContact.messages.push(messageReceivedClone)
+                // this.messageLastAxcess = "Online";
+
+
 
             }, 5000);
 
@@ -262,6 +275,8 @@ const app = Vue.createApp({
                 this.messageLastAxcess = "Ultimo accesso alle:" + this.newMessageReceived.date;
 
             }, 17000);
+
+
 
         },
         formatDate() { },
