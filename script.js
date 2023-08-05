@@ -247,9 +247,9 @@ const app = Vue.createApp({
                     .get("https://flynn.boolean.careers/exercises/api/random/sentence")
                     .then((axiosResp) => {
                         const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                        this.newMessageReceived.date = currentDate;
+                        // this.newMessageReceived.date = currentDate;
                         // const messageReceivedClone = { ...this.newMessageReceived };
-                        this.currentContact.messages.push({ message: axiosResp.data.response })
+                        this.currentContact.messages.push({ message: axiosResp.data.response, date: currentDate, })
                         this.messageLastAxcess = "Online";
                         console.log(axiosResp.data.response)
                     });
