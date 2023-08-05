@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="style.css">
     <!-- Vuejs -->
@@ -28,8 +28,8 @@
 
         <div class="container big-container">
             <div class="row">
-                <div class="col-5 border p-0 list-container">
-                    <div class="d-flex flex-column">
+                <div class="col-5 p-0 list-container">
+                    <div class="d-flex flex-column d-none d-sm-block">
                         <div class="my-navbar d-flex justify-content-between">
                             <div class="d-flex">
                                 <img src="imgs/avatar_io.jpg" alt="" class="avatar me-2">
@@ -61,20 +61,22 @@
                         <div class="list-chat flex-column">
                             <div class="my-list-item">
                                 <!-- qui cambio "contatti" in "listaContatti" per permettere di filtrare gli elementi-->
-                                <div class="d-flex single-chat" v-for="(contact, i) in listaContatti"
+                                <div class="d-flex single-chat" v-for="(contact, i) in listaContatti()"
                                     @click="onChatClick(contact)"
                                     v-bind:class="currentContact === contact ? 'active' : ''">
                                     <img v-bind:src="'imgs/avatar' + contact.avatar + '.jpg'" alt="" class=" avatar">
                                     <div class="d-flex flex-column mt-1">
                                         <p class="m-0"><strong>{{contact.name}}</strong></p>
-                                        <p class="m-0">Ultimo messaggio inviato...</p>
+                                        <p class="m-0">
+                                            utlimo messaggio inviato alle:{{}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-7 border p-0">
+                <div class="col-12 col-sm-7 border p-0">
                     <!-- navbar della chat -->
                     <div class="d-flex flex-column">
                         <div class="my-chat-nav d-flex justify-content-between">
@@ -83,7 +85,7 @@
                                     v-if="currentContact">
                                 <div class="d-flex flex-column mt-1">
                                     <p class="m-0" v-if="currentContact"><strong>{{currentContact.name}}</strong></p>
-                                    <p class="m-0">Ultimo accesso oggi alle 12.00</p>
+                                    <p class="m-0" v-if="currentContact">{{messageLastAxcess}}</p>
                                 </div>
                             </div>
                             <div class="dflex mt-2 p-2">

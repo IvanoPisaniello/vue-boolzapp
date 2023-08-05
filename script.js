@@ -211,7 +211,10 @@ const app = Vue.createApp({
                 date: "",
             },
             over: false,
+            messageLastAxcess: "ultimo accesso ore 12:00",
+            lastMessage: "",
         }
+
     },
 
     methods: {
@@ -231,10 +234,12 @@ const app = Vue.createApp({
             this.currentContact.messages.push(messageClone)
             console.log(this.contatti)
 
-
-
-
+            this.lastMessage = this.currentContact.messages;
+            setTimeout(() => {
+                this.messageLastAxcess = "sta scrivendo..."
+            }, 3000);
             this.newMessage.message = "";
+
 
 
             setTimeout(() => {
@@ -242,23 +247,25 @@ const app = Vue.createApp({
                 this.newMessageReceived.date = currentDate;
                 const messageReceivedClone = { ...this.newMessageReceived };
                 this.currentContact.messages.push(messageReceivedClone)
+                this.messageLastAxcess = "Online";
 
-            }, 2000);
+            }, 5000);
 
+
+            setTimeout(() => {
+
+                this.messageLastAxcess = "Online 1 min fa";
+
+            }, 12000);
+            setTimeout(() => {
+
+                this.messageLastAxcess = "Ultimo accesso alle:" + this.newMessageReceived.date;
+
+            }, 17000);
 
         },
         formatDate() { },
 
-
-
-        beforeMount() {
-            this.currentContact = this.contatti[0];
-        },
-
-
-    },
-    //inserisco la funzione per filtrare in computed perchè restituisce un valore basato su dati reattivi
-    computed: {
         listaContatti() {
             //se l'imput è più lungo di 0 allora mi deve ritornare il singolo contatto restituito dal controllo del nome del contatto stesso e il valore di search
             if (this.search.length > 0) {
@@ -269,7 +276,26 @@ const app = Vue.createApp({
             }
 
         },
+
+        beforeMount() {
+            this.currentContact = this.contatti[0];
+        },
+
+
     },
+    //inserisco la funzione per filtrare in computed perchè restituisce un valore basato su dati reattivi
+    // computed: {
+    //     listaContatti() {
+    //         //se l'imput è più lungo di 0 allora mi deve ritornare il singolo contatto restituito dal controllo del nome del contatto stesso e il valore di search
+    //         if (this.search.length > 0) {
+    //             return this.contatti.filter(contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
+    //         } else {
+    //             //altrimenti mi deve ritornare la lista dei contatti iniziali presente nell'array
+    //             return this.contatti;
+    //         }
+
+    //     },
+    // },
     mounted() {
         this.currentContact = this.contatti[0];
     }
