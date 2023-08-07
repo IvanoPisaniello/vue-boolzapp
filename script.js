@@ -225,8 +225,9 @@ const app = Vue.createApp({
             this.cameraOpen = true;
             //mette in pausa il resto del codice finche non viene mantenuta la "promessa"
             this.videoStream = await
-
-                navigator.mediaDevices.getUserMedia({ video: true });
+                //in questo caso mi interessa solo il video e quindi scriviamo solo "video: true", altrimenti la funzione permette anche di catturare il suono
+                //inserendo "audio: true"
+                navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 
             this.$refs.videoElement.srcObject = this.videoStream;
 
@@ -238,6 +239,14 @@ const app = Vue.createApp({
         closeVideo() {
             this.cameraOpen = false;
             this.videoStream = null;
+            //getTracks() è un metodo di getUserMedia, che tiene traccia dei flussi multimediali,
+            //agendo su getTracks si può stoppare il flusso della videocamera
+            let tracks = this.$refs.videoElement.srcObject.getTracks();
+
+            tracks.forEach(track => {
+                track.stop();
+            });
+
 
         },
 
