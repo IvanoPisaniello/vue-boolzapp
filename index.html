@@ -122,8 +122,17 @@
                                 <input type="text" class="form-control border-0 rounded-2" placeholder=""
                                     aria-label="Username" aria-describedby="basic-addon1" v-model="newMessage.message"
                                     @keyup.enter="addMessage()">
-                                <button class="px-4 py-1 border-0" id="basic-addon1"><i
+                                <button class="border-0 ps-3" v-if="newMessage.message !== ''" @click="addMessage()"><i
+                                        class="fa-brands fa-telegram"></i></button>
+                                <button class="border-0 px-3" @click="openCamera"><i
+                                        class="fa-solid fa-camera"></i></button>
+                                <button class="px-1 py-1 border-0" id="basic-addon1"><i
                                         class="fa-solid fa-microphone"></i></button>
+                                <div class="videoWindow" v-if="cameraOpen">
+                                    <video ref="videoElement" autoplay></video>
+                                    <button class="closeVideo border-0 btn" @click="closeVideo"><i
+                                            class="fa-solid fa-circle-xmark"></i></button>
+                                </div>
                             </div>
 
                         </div>

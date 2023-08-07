@@ -155,3 +155,23 @@ a {
     font-size: 8px;
     align-self: flex-end;
 }
+
+.videoWindow {
+    height: 600px;
+    width: 600px;
+
+    position: fixed;
+    z-index: 998;
+    top: 100px;
+    left: 300px;
+
+}
+
+.closeVideo {
+    position: absolute;
+    z-index: 999;
+    bottom: 50px;
+    left: 300px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}

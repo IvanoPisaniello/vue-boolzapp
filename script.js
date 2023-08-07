@@ -235,7 +235,11 @@ const app = Vue.createApp({
 
 
         },
+        closeVideo() {
+            this.cameraOpen = false;
+            this.videoStream = null;
 
+        },
 
         onChatClick(contact) {
             console.log(contact)
