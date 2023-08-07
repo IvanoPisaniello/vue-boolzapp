@@ -213,11 +213,29 @@ const app = Vue.createApp({
             over: false,
             messageLastAxcess: "ultimo accesso ore 12:00",
             lastMessage: "",
+            videoStream: null,
+            cameraOpen: false,
         }
 
     },
 
     methods: {
+        //utilizzo async per creare una funzione asincrona, in modo tale che la pagina contnui a fare il resto
+        async openCamera() {
+            this.cameraOpen = true;
+            //mette in pausa il resto del codice finche non viene mantenuta la "promessa"
+            this.videoStream = await
+
+                navigator.mediaDevices.getUserMedia({ video: true });
+
+            this.$refs.videoElement.srcObject = this.videoStream;
+
+
+
+
+
+        },
+
 
         onChatClick(contact) {
             console.log(contact)
