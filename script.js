@@ -293,29 +293,29 @@ const app = Vue.createApp({
             this.newMessage.message = "";
 
 
-            if (this.newMessage.message !== "" && this.newMessage.message !== " ") {
-                setTimeout(() => {
-                    axios
-                        .get("https://flynn.boolean.careers/exercises/api/random/sentence")
-                        .then((axiosResp) => {
-                            const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                            this.newMessageReceived.date = currentDate;
-                            // const messageReceivedClone = { ...this.newMessageReceived };
-                            this.currentContact.messages.push({ message: axiosResp.data.response, date: currentDate, })
-                            this.messageLastAxcess = "Online";
-                            console.log(axiosResp.data.response)
-                        });
 
-                    // const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                    // this.newMessageReceived.date = currentDate;
-                    // const messageReceivedClone = { ...this.newMessageReceived };
-                    // this.currentContact.messages.push(messageReceivedClone)
-                    // this.messageLastAxcess = "Online";
+            setTimeout(() => {
+                axios
+                    .get("https://flynn.boolean.careers/exercises/api/random/sentence")
+                    .then((axiosResp) => {
+                        const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                        this.newMessageReceived.date = currentDate;
+                        // const messageReceivedClone = { ...this.newMessageReceived };
+                        this.currentContact.messages.push({ message: axiosResp.data.response, date: currentDate, })
+                        this.messageLastAxcess = "Online";
+                        console.log(axiosResp.data.response)
+                    });
+
+                // const currentDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                // this.newMessageReceived.date = currentDate;
+                // const messageReceivedClone = { ...this.newMessageReceived };
+                // this.currentContact.messages.push(messageReceivedClone)
+                // this.messageLastAxcess = "Online";
 
 
 
-                }, 5000);
-            }
+            }, 5000);
+
 
 
             setTimeout(() => {
