@@ -188,7 +188,24 @@ a {
     background-color: #009688;
 }
 
-.dropdown {
+.dropdown-contact {
     position: absolute;
     left: 90%;
+}
+
+.menu-mex {
+    font-size: 8px;
+}
+
+.message {
+    position: relative;
+}
+
+.dropdown-chat {
+    position: absolute;
+    left: 90%;
+    bottom: 50%;
+
+    margin-right: 20px;
+    padding: 0%;
 }

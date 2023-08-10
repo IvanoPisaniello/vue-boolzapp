@@ -74,14 +74,15 @@
                                     <div class="d-flex flex-column mt-1">
                                         <div class="d-flex justify-content-between">
                                             <p class="m-0"><strong>{{contact.name}}</strong></p>
-                                            <div class="dropdown">
+                                            <div class="dropdown-contact">
                                                 <button class="btn" type="button" data-bs-toggle="dropdown"
                                                     aria-expanded="false"><i
                                                         class="fa-solid fa-ellipsis-vertical text-black"></i>
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li><button class="dropdown-item"
-                                                            @click="deleteBtn(contact)">Elimina chat</button></li>
+                                                            @click="onDeleteClickChat(contact)">Elimina chat</button>
+                                                    </li>
                                                     <li><button class="dropdown-item" type="button">Another
                                                             action</button>
                                                     </li>
@@ -138,13 +139,40 @@
                         <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
                             v-bind:class="currentContact === chat ? 'active' : ''">
                             <div class="d-flex flex-column messages-container">
-                                <p class=" p-2 rounded-3 message d-flex flex-column"
+                                <div class=" p-1 m-3 rounded-3 message d-flex flex-column"
                                     v-for="(messageGroup, i) in chat.messages"
                                     v-bind:class="messageGroup.status === 'sent' ? 'sent-message' : 'received-message'">
-                                    {{messageGroup.message}}
-                                    <span class="date-container">{{messageGroup.date}}</span>
-                                    <!-- <i class="fa-solid fa-angle-down"></i> -->
-                                </p>
+                                    <div class="">
+
+                                        <p class="me-5 p-0"> {{messageGroup.message}}
+                                        </p>
+
+                                        <div class="dropdown-chat">
+                                            <button class="btn" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false"><i
+                                                    class="fa-solid fa-ellipsis-vertical text-black menu-mex"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><button class="dropdown-item"
+                                                        @click="onDeleteMessage(messageGroup.message, indice)">Elimina
+                                                        messaggio</button>
+                                                </li>
+                                                <li><button class="dropdown-item" type="button">Another
+                                                        action</button>
+                                                </li>
+                                                <li><button class="dropdown-item" type="button">Something else
+                                                        here</button></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <span class="date-container p-0">{{messageGroup.date}}</span>
+
+
+
+
+
+                                </div>
 
                             </div>
                             <!-- <div class="sent d-flex justify-content-end">

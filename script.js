@@ -220,7 +220,11 @@ const app = Vue.createApp({
     },
 
     methods: {
-        deleteBtn(contact) {
+        onDeleteMessage(message, indice) {
+            this.currentContact.messages.splice(message[indice], 1)
+            console.log("indice messaggio", message)
+        },
+        onDeleteClickChat(contact) {
             let indexItem = this.contatti.findIndex((contact) => this.currentContact === contact)
             this.contatti.splice(indexItem, 1)
 
