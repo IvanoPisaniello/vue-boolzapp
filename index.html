@@ -107,8 +107,8 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <p class="m-0">
-                                            utlimo messaggio inviato alle:{{}}
+                                        <p class="m-0" v-if="currentContact === contact">
+                                            {{lastMessage}}
                                         </p>
 
                                         <!-- <div class="">

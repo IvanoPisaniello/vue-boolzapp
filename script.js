@@ -212,7 +212,9 @@ const app = Vue.createApp({
             },
             over: false,
             messageLastAxcess: "ultimo accesso ore 12:00",
-            lastMessage: "",
+            lastMessage: null,
+
+
             videoStream: null,
             cameraOpen: false,
             currentMessage: null,
@@ -281,10 +283,11 @@ const app = Vue.createApp({
             // this.currentContact.messages.push(messageClone)
             if (this.newMessage.message !== "" && this.newMessage.message !== " ") {
                 this.currentContact.messages.push(messageClone)
+                this.lastMessage = messageClone.message
             }
             console.log(this.contatti)
 
-            this.lastMessage = this.currentContact.messages;
+
             if (this.newMessage.message !== "" && this.newMessage.message !== " ") {
                 setTimeout(() => {
                     this.messageLastAxcess = "sta scrivendo..."
@@ -303,6 +306,7 @@ const app = Vue.createApp({
                         // const messageReceivedClone = { ...this.newMessageReceived };
                         this.currentContact.messages.push({ message: axiosResp.data.response, date: currentDate, })
                         this.messageLastAxcess = "Online";
+                        this.lastMessage = axiosResp.data.response;
                         console.log(axiosResp.data.response)
                     });
 
