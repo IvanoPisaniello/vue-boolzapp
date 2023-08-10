@@ -215,13 +215,16 @@ const app = Vue.createApp({
             lastMessage: "",
             videoStream: null,
             cameraOpen: false,
+            currentMessage: null,
+            startingScreen: true,
         }
 
     },
 
     methods: {
         onDeleteMessage(message, indice) {
-            this.currentContact.messages.splice(message[indice], 1)
+            this.currentMessage = message;
+            this.currentContact.messages.splice(this.currentMessage, 1)
             console.log("indice messaggio", message)
         },
         onDeleteClickChat(contact) {
@@ -357,6 +360,12 @@ const app = Vue.createApp({
     // },
     mounted() {
         this.currentContact = this.contatti[0];
+
+
+        setTimeout(() => {
+            this.startingScreen = false
+        }, 5000);
+
     }
 })
 

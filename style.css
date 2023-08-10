@@ -191,10 +191,15 @@ a {
 .dropdown-contact {
     position: absolute;
     left: 90%;
+    display: none;
+}
+
+.single-chat:hover .dropdown-contact {
+    display: flex;
 }
 
 .menu-mex {
-    font-size: 8px;
+    font-size: .8rem;
 }
 
 .message {
@@ -205,7 +210,36 @@ a {
     position: absolute;
     left: 90%;
     bottom: 50%;
-
+    display: none;
     margin-right: 20px;
     padding: 0%;
+}
+
+
+
+.message:hover .dropdown-chat {
+    display: block;
+}
+
+.starting-screen {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(11, 10, 10, 0.831);
+    height: 100%;
+}
+
+.whatsapp-logo {
+    position: fixed;
+    top: 100px;
+    left: 500px;
+    height: 50%;
+}
+
+.loader {
+    position: fixed;
+    top: 600px;
+    left: 620px;
 }

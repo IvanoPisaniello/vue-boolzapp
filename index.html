@@ -32,8 +32,24 @@
     <div id="app">
 
         <div class="container big-container">
+            <div class="starting-screen " v-if="startingScreen">
+                <img src="imgs/WhatsApp_Logo.svg" alt="" class="whatsapp-logo">
+                <div class="loader d-flex">
+                    <div class="spinner-grow text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+
+                    </div>
+                    <div class="spinner-grow text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-5 p-0 list-container">
+
                     <div class="d-flex flex-column d-none d-sm-block">
                         <div class="my-navbar d-flex justify-content-between">
                             <div class="d-flex">
@@ -75,7 +91,7 @@
                                         <div class="d-flex justify-content-between">
                                             <p class="m-0"><strong>{{contact.name}}</strong></p>
                                             <div class="dropdown-contact">
-                                                <button class="btn" type="button" data-bs-toggle="dropdown"
+                                                <button class="btn border-0" type="button" data-bs-toggle="dropdown"
                                                     aria-expanded="false"><i
                                                         class="fa-solid fa-ellipsis-vertical text-black"></i>
                                                 </button>
@@ -148,7 +164,7 @@
                                         </p>
 
                                         <div class="dropdown-chat">
-                                            <button class="btn" type="button" data-bs-toggle="dropdown"
+                                            <button class="btn border-0" type="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false"><i
                                                     class="fa-solid fa-ellipsis-vertical text-black menu-mex"></i>
                                             </button>
