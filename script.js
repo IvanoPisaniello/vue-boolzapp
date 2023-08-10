@@ -220,6 +220,14 @@ const app = Vue.createApp({
     },
 
     methods: {
+        deleteBtn(contact) {
+            let indexItem = this.contatti.findIndex((contact) => this.currentContact === contact)
+            this.contatti.splice(indexItem, 1)
+
+            console.log("contatto corrente", indexItem)
+        },
+
+
         //utilizzo async per creare una funzione asincrona, in modo tale che la pagina contnui a fare il resto
         async openCamera() {
             this.cameraOpen = true;
@@ -228,7 +236,8 @@ const app = Vue.createApp({
                 //in questo caso mi interessa solo il video e quindi scriviamo solo "video: true", altrimenti la funzione permette anche di catturare il suono
                 //inserendo "audio: true"
                 navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-
+            //qui prendiamo con il ref l'elemento dove visualizzare la cam, il tag video ha un src in questo caso ci inseriamo
+            //videoStream
             this.$refs.videoElement.srcObject = this.videoStream;
 
 

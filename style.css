@@ -110,6 +110,7 @@ p {
     padding: 5px;
     border-bottom: 1px solid #EAEAEA;
     cursor: pointer;
+    position: relative;
 }
 
 .active {
@@ -171,7 +172,23 @@ a {
     position: absolute;
     z-index: 999;
     bottom: 50px;
+    left: 290px;
+    border-radius: 50%;
+
+    background-color: #009688;
+}
+
+.capture-img {
+    position: absolute;
+    z-index: 999;
+    bottom: 50px;
     left: 300px;
     border-radius: 50%;
-    font-size: 1.5rem;
+
+    background-color: #009688;
+}
+
+.dropdown {
+    position: absolute;
+    left: 90%;
 }
