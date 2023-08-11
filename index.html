@@ -152,8 +152,8 @@
                             </div>
                         </div>
                         <!-- contenitore della chat -->
-                        <div class="my-chat-container p-5" v-for="(chat, i) in contatti"
-                            v-bind:class="currentContact === chat ? 'active' : ''">
+                        <div class="my-chat-container p-5 overflow-auto" v-for="(chat, i) in contatti"
+                            v-bind:class="currentContact === chat ? 'active' : ''" ref="msgsContainer">
                             <div class="d-flex flex-column messages-container">
                                 <div class=" p-1 m-3 rounded-3 message d-flex flex-column"
                                     v-for="(messageGroup, i) in chat.messages"
@@ -170,7 +170,7 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><button class="dropdown-item"
-                                                        @click="onDeleteMessage(messageGroup.message, indice)">Elimina
+                                                        @click="onDeleteMessage(messageGroup.message, i)">Elimina
                                                         messaggio</button>
                                                 </li>
                                                 <li><button class="dropdown-item" type="button">Another

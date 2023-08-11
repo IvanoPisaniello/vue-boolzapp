@@ -219,15 +219,16 @@ const app = Vue.createApp({
             cameraOpen: false,
             currentMessage: null,
             startingScreen: true,
+
         }
 
     },
 
     methods: {
-        onDeleteMessage(message, indice) {
-            this.currentMessage = message;
-            this.currentContact.messages.splice(this.currentMessage, 1)
-            console.log("indice messaggio", message)
+        onDeleteMessage(message, i) {
+            // this.currentMessage = message;
+            this.currentContact.messages.splice(i, 1)
+            console.log("indice messaggio", i)
         },
         onDeleteClickChat(contact) {
             let indexItem = this.contatti.findIndex((contact) => this.currentContact === contact)
@@ -272,6 +273,7 @@ const app = Vue.createApp({
             console.log(contact)
             this.currentContact = contact;
 
+
         },
         addMessage() {
             //soluzione per formattare l'ora: passiamo come primo argomento a "toLocaleTimeString" un array vuoto(impostazioni regionali)
@@ -283,7 +285,7 @@ const app = Vue.createApp({
             // this.currentContact.messages.push(messageClone)
             if (this.newMessage.message !== "" && this.newMessage.message !== " ") {
                 this.currentContact.messages.push(messageClone)
-                this.lastMessage = messageClone.message
+                this.lastMessage = messageClone.message + " " + currentDate;
             }
             console.log(this.contatti)
 
@@ -306,7 +308,7 @@ const app = Vue.createApp({
                         // const messageReceivedClone = { ...this.newMessageReceived };
                         this.currentContact.messages.push({ message: axiosResp.data.response, date: currentDate, })
                         this.messageLastAxcess = "Online";
-                        this.lastMessage = axiosResp.data.response;
+                        this.lastMessage = axiosResp.data.response + " " + currentDate;
                         console.log(axiosResp.data.response)
                     });
 
@@ -333,9 +335,14 @@ const app = Vue.createApp({
 
             }, 17000);
 
+            setTimeout(() => {
 
+                const div = this.$refs.msgsContainer;
+                div.scrollTop -= 600;
+            }, 0);
 
         },
+
         formatDate() { },
 
         listaContatti() {
