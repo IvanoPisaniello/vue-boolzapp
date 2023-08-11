@@ -107,7 +107,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <p class="m-0" v-if="currentContact === contact">
+                                        <p class="m-0" v-if="!i">
                                             {{lastMessage}}
                                         </p>
 
@@ -159,9 +159,9 @@
                                     v-for="(messageGroup, i) in chat.messages"
                                     v-bind:class="messageGroup.status === 'sent' ? 'sent-message' : 'received-message'">
                                     <div class="">
-
-                                        <p class="me-5 p-0"> {{messageGroup.message}}
-                                        </p>
+                                        <p class="me-5 p-0" v-if="!messageGroup.message.startsWith('data:image')">
+                                            {{messageGroup.message}}</p>
+                                        <img v-if="isImage" :src="messageGroup.message" alt="" class="img-mex">
 
                                         <div class="dropdown-chat">
                                             <button class="btn border-0" type="button" data-bs-toggle="dropdown"
@@ -183,6 +183,7 @@
 
                                     </div>
                                     <span class="date-container p-0">{{messageGroup.date}}</span>
+
 
 
 
@@ -212,13 +213,19 @@
                                         class="fa-solid fa-camera"></i></button>
                                 <button class="px-1 py-1 border-0 btn btn-outline-secondary" id="basic-addon1"><i
                                         class="fa-solid fa-microphone"></i></button>
-                                <div class="videoWindow" v-if="cameraOpen">
+                                <div class="videoWindow" v-if="cameraOpen" ref="videoWindow">
                                     <video ref="videoElement" autoplay></video>
                                     <button
                                         class="closeVideo border-0 btn btn-outline-secondary btn btn-outline-secondary"
                                         @click="closeVideo"><i class="fa-solid fa-circle-xmark"></i></button>
-                                    <button class="btn btn-outline-secondary capture-img"><i
+                                    <button class="btn btn-outline-secondary capture-img" @click="capture"><i
                                             class="fa-solid fa-camera"></i></button>
+                                    <div v-if="screenshotURL">
+                                        <img v-if="screenshotURL" :src="screenshotURL" alt="Screenshot"
+                                            class="stream-img"></img>
+                                        <button @click="sendImage" class="btn send-image-btn"><i
+                                                class="fa-brands fa-telegram"></i></button>
+                                    </div>
                                 </div>
                             </div>
 

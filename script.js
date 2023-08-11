@@ -219,6 +219,9 @@ const app = Vue.createApp({
             cameraOpen: false,
             currentMessage: null,
             startingScreen: true,
+            screenshotURL: '',
+            sendImageClick: false,
+            isImage: false,
 
         }
 
@@ -253,8 +256,17 @@ const app = Vue.createApp({
 
 
 
+        },
+        //adesso catturo uno screenshot dello streaming della camera
+        async capture() {
+            let el = this.$refs.videoWindow;
+            const canvas = await html2canvas(el)
+            console.log(this.$refs.videoWindow)
+            this.screenshotURL = canvas.toDataURL('image/png');
 
         },
+
+
         closeVideo() {
             this.cameraOpen = false;
             this.videoStream = null;
@@ -285,7 +297,7 @@ const app = Vue.createApp({
             // this.currentContact.messages.push(messageClone)
             if (this.newMessage.message !== "" && this.newMessage.message !== " ") {
                 this.currentContact.messages.push(messageClone)
-                this.lastMessage = messageClone.message + " " + currentDate;
+                this.lastMessage = messageClone.message + " " + messageClone.status + " " + "at" + " " + currentDate;
             }
             console.log(this.contatti)
 
@@ -297,7 +309,7 @@ const app = Vue.createApp({
             }
             this.newMessage.message = "";
 
-
+            console.log("il contatto corrente è:", this.currentContact)
 
             setTimeout(() => {
                 axios
@@ -308,7 +320,7 @@ const app = Vue.createApp({
                         // const messageReceivedClone = { ...this.newMessageReceived };
                         this.currentContact.messages.push({ message: axiosResp.data.response, date: currentDate, })
                         this.messageLastAxcess = "Online";
-                        this.lastMessage = axiosResp.data.response + " " + currentDate;
+                        this.lastMessage = axiosResp.data.response + " " + " " + this.newMessageReceived.status + " " + "at" + " " + currentDate;
                         console.log(axiosResp.data.response)
                     });
 
@@ -321,6 +333,7 @@ const app = Vue.createApp({
 
 
             }, 5000);
+
 
 
 
@@ -341,6 +354,13 @@ const app = Vue.createApp({
                 div.scrollTop -= 600;
             }, 0);
 
+        },
+        //invio la foto come messaggio
+        sendImage() {
+            this.isImage = true;
+            this.currentContact.messages.push({
+                message: this.screenshotURL, status: "sent"
+            })
         },
 
         formatDate() { },
