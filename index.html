@@ -220,7 +220,7 @@
                                         @click="closeVideo"><i class="fa-solid fa-circle-xmark"></i></button>
                                     <button class="btn btn-outline-secondary capture-img" @click="capture"><i
                                             class="fa-solid fa-camera"></i></button>
-                                    <div v-if="screenshotURL">
+                                    <div v-if="screenshotURL" class="img-container">
                                         <img v-if="screenshotURL" :src="screenshotURL" alt="Screenshot"
                                             class="stream-img"></img>
                                         <button @click="sendImage" class="btn send-image-btn"><i

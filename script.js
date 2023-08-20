@@ -263,6 +263,13 @@ const app = Vue.createApp({
             const canvas = await html2canvas(el)
             console.log(this.$refs.videoWindow)
             this.screenshotURL = canvas.toDataURL('image/png');
+            let tracks = this.$refs.videoElement.srcObject.getTracks();
+            tracks.forEach(track => {
+                track.stop();
+            });
+
+
+
 
         },
 
@@ -361,6 +368,16 @@ const app = Vue.createApp({
             this.currentContact.messages.push({
                 message: this.screenshotURL, status: "sent"
             })
+
+            this.cameraOpen = false;
+            this.videoStream = null;
+            //getTracks() è un metodo di getUserMedia, che tiene traccia dei flussi multimediali,
+            //agendo su getTracks si può stoppare il flusso della videocamera
+            let tracks = this.$refs.videoElement.srcObject.getTracks();
+
+            tracks.forEach(track => {
+                track.stop();
+            });
         },
 
         formatDate() { },
